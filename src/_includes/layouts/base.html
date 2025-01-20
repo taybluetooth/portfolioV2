@@ -1,51 +1,47 @@
 {% set assetHash = global.random() %}
 <!DOCTYPE html>
-<html lang="en" itemscope="" itemtype="http://schema.org/Webpage">
+<html lang="en" itemscope="" itemtype="http://schema.org/Webpage" data-theme="{{ theme }}">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta
       name="viewport"
       content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimal-ui"
-    />
-    <title>Callum Taylor</title>
-    <meta
-      name="description"
-      content="Callum Taylor, Edinburgh based Frontend Developer"
-    />
-
-    <!-- Schema.org (For Google+) -->
-    <meta itemprop="name" content="Callum Taylor" />
-    <meta
-      itemprop="description"
-      content="Callum Taylor, Edinburgh based Frontend Developer"
-    />
-    <meta itemprop="image" content="" />
-
+/>
+    <title>{{ title }}</title>
     <style>
       {% include "css/critical.css" %}
     </style>
 
-    {% if pageCriticalStyles %} {% for item in pageCriticalStyles %}
-    <style>
-      {% include item %}
-    </style>
-    {% endfor %} {% endif %}
+    {% if pageCriticalStyles %}
+      {% for item in pageCriticalStyles %}
+        <style>
+          {% include item %}
+        </style>
+      {% endfor %}
+    {% endif %}
     <link
       rel="stylesheet"
       media="print"
       href="/fonts/fonts.css?{{ assetHash }}"
       onload="this.media='all'"
-    />
+/>
 
-    {% if pageStylesheets %} {% for item in pageStylesheets %}
-    <link
+    {% if pageStylesheets %}
+      {% for item in pageStylesheets %}
+        <link
       rel="stylesheet"
       media="print"
       href="{{ item }}?{{ assetHash }}"
       onload="this.media='all'"
-    />
-    {% endfor %} {% endif %}
+/>
+      {% endfor %}
+    {% endif %}
   </head>
-  <body></body>
+  <body>
+    <main tabindex="-1" id="main-content">
+      {% include "partials/site-head.html" %}
+      {% block content %}{% endblock %}
+    </main>
+  </body>
 </html>

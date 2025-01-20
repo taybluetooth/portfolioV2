@@ -1,4 +1,6 @@
 module.exports = (config) => {
+  // Add the helpers as global data
+  config.addPassthroughCopy("./src/scripts/theme.js");
   // Transforms
   const htmlMinTransform = require("./src/transforms/html-min-transform.js");
 
@@ -17,7 +19,7 @@ module.exports = (config) => {
     htmlTemplateEngine: "njk",
     dir: {
       input: "src",
-      output: "dist",
-    },
+      output: "dist"
+    }
   };
 };

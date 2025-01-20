@@ -1,1 +1,36 @@
-@use '_reset.scss' as *;
+@use "_reset.scss" as *;
+@use "./settings/variables" as *;
+@use "blocks/_nav";
+@use "sass:map";
+
+@mixin base-font-style($name, $weight, $italic: false) {
+  .lato-#{$name}#{if($italic, "-italic", "")} {
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: $weight;
+    font-style: #{if($italic, "italic", "normal")};
+  }
+}
+
+@each $name, $weight in $weights {
+  @include base-font-style($name, $weight);
+  @include base-font-style($name, $weight, true);
+}
+
+@mixin base-font-family {
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  @include base-font-family;
+  @extend .lato-regular;
+
+  background-color: light-dark(
+    map.get($dark-theme, background),
+    map.get($light-theme, background)
+  );
+  color: light-dark(map.get($dark-theme, color), map.get($light-theme, color));
+}

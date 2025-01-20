@@ -1,0 +1,21 @@
+$phi: 1.6180339887498948482;
+
+$weights: (
+  "thin": 100,
+  "light": 300,
+  "regular": 400,
+  "bold": 700,
+  "black": 900,
+);
+
+$light-theme: (
+  background: #fdfffc,
+  color: #011627,
+  highlight: #00BD9D,
+);
+
+$dark-theme: (
+  background: #011627,
+  color: #fdfffc,
+  highlight: #00BD9D,
+);

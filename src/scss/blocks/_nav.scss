@@ -1,0 +1,48 @@
+@use '../settings/variables' as *;
+@use "sass:map";
+
+$nav__height: 3rem;
+$nav__width: 60%;
+
+.nav {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: 0;
+}
+
+.nav__list {
+    display: flex;
+    justify-content: space-between;
+    width: $nav__width;
+}
+
+.nav__item {
+    display: flex;
+    align-items: center;
+    height: $nav__height * $phi;
+}
+.nav__logo {
+    margin-right: auto;
+}
+
+.nav__links {
+    @extend .nav__list;
+    gap: 2rem;
+    width: 100%;
+}
+
+.nav__link {
+    text-decoration: none;
+    color: inherit;
+    &:hover {
+        color: light-dark(map.get($dark-theme, highlight), map.get($light-theme, highlight))
+    }
+}
+
+
+.nav__toggle {
+    margin-left: auto;
+}

@@ -1,0 +1,19 @@
+<nav class="nav">
+    <ul class="nav__list">
+        <li class="nav__item nav__logo">
+            <a>{{navigation.logo}}</a>
+        </li>
+        <li class="nav__item">
+            <ul class="nav__links">
+                {% for item in navigation.items %}
+                    <li class="nav__item">
+                        <a class="nav__link" href="{{item.url}}">{{item.text}}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li class="nav__item nav__toggle">
+            <button aria-label="Toggle Theme">🌙</button>
+        </li>
+    </ul>
+</nav>

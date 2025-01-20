@@ -1,0 +1,25 @@
+{
+    "items": [
+        {
+            "text": "Home",
+            "url": "/"
+        },
+        {
+            "text": "About",
+            "url": "/about"
+        },
+        {
+            "text": "Work",
+            "url": "/work"
+        },
+        {
+            "text": "Contact",
+            "url": "/contact"
+        },
+        {
+            "text": "Resume",
+            "url": "/resume"
+        }
+    ],
+    "logo": "Callum Taylor"
+}
